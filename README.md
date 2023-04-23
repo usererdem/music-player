@@ -2,7 +2,7 @@
 
 This is a music player app built with React. It allows you to select and play music from your library.
 
-This app is currently deployed on Netlify at [Netlify link will be added here when i finish project](Netlify-link-will-be-added-here-when-i-finish-project).
+This app is currently deployed on Netlify at [https://music-player-erdem.netlify.app/](https://music-player-erdem.netlify.app/).
 
 ## Features
 - Browse your music library
