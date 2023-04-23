@@ -29,7 +29,7 @@ const LibrarySong = ({
       }
     });
     setSongs(newSongs);
-    // check if the song is playing
+    // Play audio
     if (isPlaying) audioRef.current.play();
   };
   return (

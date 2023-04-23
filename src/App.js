@@ -20,6 +20,7 @@ function App() {
     currentTime: 0,
     duration: 0,
     animationPercentage: 0,
+    volume: 0,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
   // Event Handler
@@ -35,6 +36,7 @@ function App() {
       currentTime: current,
       duration,
       animationPercentage: animation,
+      volume: e.target.volume,
     });
   };
 
@@ -51,7 +53,7 @@ function App() {
   return (
     <div className={`App ${libraryStatus ? "library-active" : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
+      <Song isPlaying={isPlaying} currentSong={currentSong} />
       <Player
         audioRef={audioRef}
         isPlaying={isPlaying}
