@@ -73,4 +73,13 @@
   .library {
     width: 100%;
   }
+
+  .library-song {
+    &:hover {
+      background: rgb(194, 208, 253);
+    }
+  }
+  .selected {
+    background: rgb(194, 208, 253);
+  }
 }
