@@ -5,6 +5,7 @@ import {
   faPause,
   faAngleLeft,
   faAngleRight,
+  /* faVolumeDown, */
 } from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({
@@ -18,8 +19,11 @@ const Player = ({
   setCurrentSong,
   setSongs,
 }) => {
+  // State for Volume Slider
+  /* const [activeVolume, setActiveVolume] = useState(false); */
+
+  // Event Handlers
   const activeLibraryHandler = (nextPrev) => {
-    // Add Active State
     const newSongs = songs.map((song) => {
       if (song.id === nextPrev.id) {
         return {
@@ -36,7 +40,6 @@ const Player = ({
     setSongs(newSongs);
   };
 
-  // Event Handlers
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
@@ -60,6 +63,8 @@ const Player = ({
 
   const skipTrackHandler = async (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+
+    // Forward and Back
     if (direction === "skip-forward") {
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
@@ -76,6 +81,14 @@ const Player = ({
     }
     if (isPlaying) audioRef.current.play();
   };
+
+  /* Volume Slider */
+  /* const changeVolume = (e) => {
+    let value = e.target.value;
+    audioRef.current.volume = value;
+    setSongInfo({ ...songInfo, volume: value });
+  }; */
+
   // Add the styles
   const trackAnim = {
     transform: `translateX(${songInfo.animationPercentage}%)`,
@@ -120,6 +133,21 @@ const Player = ({
           size='2x'
           icon={faAngleRight}
         />
+        {/* Volume Slider  */}
+        {/* <FontAwesomeIcon
+          onClick={() => setActiveVolume(!activeVolume)}
+          icon={faVolumeDown}
+        />
+        {activeVolume && (
+          <input
+            onChange={changeVolume}
+            value={songInfo.volume}
+            max='1'
+            min='0'
+            step='0.01'
+            type='range'
+          />
+        )} */}
       </div>
     </div>
   );
