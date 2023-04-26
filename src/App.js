@@ -23,6 +23,7 @@ function App() {
     volume: 0,
   });
   const [libraryStatus, setLibraryStatus] = useState(false);
+  const [theme, setTheme] = useState("dark");
   // Event Handler
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
@@ -51,8 +52,8 @@ function App() {
   };
 
   return (
-    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+    <div className={`App ${libraryStatus ? "library-active" : ""} ${theme}`}>
+      <Nav theme={theme} setTheme={setTheme} libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song isPlaying={isPlaying} currentSong={currentSong} />
       <Player
         audioRef={audioRef}

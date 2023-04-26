@@ -1,19 +1,55 @@
+@import "./colors";
+
 nav {
   min-height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   button {
-    background: transparent;
+    background: $color-white;
     border: none;
     cursor: pointer;
-    border: 2px solid rgb(65, 65, 65);
+    border: 2px solid $color-dark-2;
     padding: 0.5rem;
     transition: all 0.3s ease;
     &:hover {
-      background: rgb(65, 65, 65);
-      color: white;
+      background: $color-dark-2;
+      color: $color-white;
     }
+  }
+}
+
+.theme-div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  color: $color-dark-1;
+  button {
+    margin-right: 1rem;
+  }
+}
+
+.dark {
+  nav {
+    button {
+      background: $color-light-1;
+      border: 2px solid $color-dark-1;
+      color: $color-dark-1;
+      &:hover {
+        background: $color-dark-1;
+        color: $color-light-1;
+        border: 2px solid $color-light-1;
+      }
+    }
+
+    h1 {
+      color: $color-light-1;
+    }
+  }
+
+  .theme-div {
+    color: $color-light-1;
   }
 }
 

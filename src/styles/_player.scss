@@ -1,3 +1,5 @@
+@import "./colors";
+
 .player {
   min-height: 20vh;
   display: flex;
@@ -69,6 +71,21 @@ input[type="range"]::-moz-range-thumb {
   -webkit-appearance: none;
   background: transparent;
   border: none;
+}
+
+.dark {
+  /* background: rgb(204, 204, 204); */
+  .animate-track {
+    background: $color-light-1;
+  }
+
+  .play-control {
+    color: $color-light-1;
+  }
+
+  p {
+    color: $color-light-2;
+  }
 }
 
 @media screen and (max-width: 768px) {

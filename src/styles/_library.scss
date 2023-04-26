@@ -1,16 +1,20 @@
+@import "./colors";
+
 .library {
   position: fixed;
   top: 0;
   left: 0;
   width: 20rem;
   height: 100%;
-  background: white;
+  background: $color-white;
   box-shadow: 2px 2px 50px rgb(204, 204, 204);
   overflow: scroll;
   transform: translateX(-100%);
   transition: all 0.5s ease;
   opacity: 0;
   border-radius: 1rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
   h2 {
     padding: 2rem;
   }
@@ -21,27 +25,59 @@
   align-items: center;
   padding: 1rem 2rem 1rem 2rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.4s ease;
   img {
+    transition: all 0.4s ease-in-out;
     width: 30%;
+    border-radius: 0.5rem;
   }
   &:hover {
-    background: rgb(235, 235, 235);
+    background: $color-dark-2;
+    color: $color-white;
+    .song-description {
+      h3 {
+        color: $color-light-1;
+      }
+      h4 {
+        color: $color-light-2;
+      }
+    }
+    img {
+      border-radius: 1rem;
+    }
   }
 }
 
 .song-description {
   padding-left: 1rem;
   h3 {
+    transition: all 0.3s ease;
     font-size: 1rem;
+    color: $color-dark-1;
   }
   h4 {
+    transition: all 0.3s ease;
     font-size: 0.7rem;
+    color: $color-dark-2;
   }
 }
 
 .selected {
-  background: rgb(194, 208, 253);
+  background: $color-dark-4;
+  img {
+    transition: all 0.6s ease-in-out;
+    border-radius: 5rem !important;
+  }
+}
+
+.selected .song-description {
+  h3 {
+    color: white;
+  }
+
+  h4 {
+    color: $color-light-1;
+  }
 }
 
 .active-library {
@@ -69,6 +105,41 @@
   border: transparent;
 }
 
+.dark {
+  .library {
+    background: $color-light-1;
+    box-shadow: 2px 2px 2px $color-white;
+
+    h2 {
+      color: $color-dark-1;
+    }
+  }
+
+  .selected {
+    background: $color-dark-4;
+  }
+
+  .selected .song-description {
+    h3 {
+      color: $color-white;
+    }
+
+    h4 {
+      color: $color-light-1;
+    }
+  }
+
+  .song-description {
+    h3 {
+      color: $color-dark-2;
+    }
+
+    h4 {
+      color: $color-dark-3;
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .library {
     width: 100%;
@@ -76,10 +147,7 @@
 
   .library-song {
     &:hover {
-      background: rgb(194, 208, 253);
+      background: $color-dark-4;
     }
-  }
-  .selected {
-    background: rgb(194, 208, 253);
   }
 }
